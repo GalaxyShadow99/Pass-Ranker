@@ -55,6 +55,17 @@ function getStudentRank($conn,$id_etu) {
     WHERE id_etudiant=$id_etu;";
     return $conn->query($sql);
 }
+
+function getPromAverage($conn,$filiere = "MMOK") {
+    $sql = "SELECT rank FROM (
+        SELECT id_etudiant, moyenne_mmok,RANK() OVER (ORDER BY moyenne_mmok DESC) as rank
+        FROM pass_etudiants
+        WHERE moyenne_mmok IS NOT NULL
+    ) AS classement
+    WHERE truc;";
+    return $conn->query($sql);
+}
+
 /**
  * Formate les notes proprement (ex: 15.386)
  */

@@ -1,43 +1,60 @@
 <?php
-
-// https://www.php.net/manual/fr/book.mysqli.php
-
-// charger les données du .env 
-use Dotenv\Dotenv;
 require_once __DIR__ . '/vendor/autoload.php';
-$dotenv = Dotenv::createImmutable(__DIR__);
-$dotenv->load();
+include_once __DIR__ . '/includes/head.php';
+?>
 
-$servername = "127.0.0.1";
-$username   = $_ENV['USER']     ?? null;
-$password   = $_ENV['PASSWORD'] ?? null;
-$dbname     = $_ENV['DB']       ?? null;
+<body>
+  <?php include_once __DIR__ . '/includes/header.php'; ?>
 
-if (!$password) {
-    die("ERREUR : Le mot de passe n'est pas chargé depuis le .env. Vérifie le fichier.");
-}
-// Create connection
-$conn = new mysqli($servername, $username, $password,$dbname);
+  <main class="container my-5">
+    <section class="text-center py-5" style="background: linear-gradient(135deg,#0b1226 0%, #172554 60%); color: #fff; border-radius: .5rem; padding: 4rem 2rem;">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <h1 class="display-5 fw-bold">Bienvenue sur PASSRANKER</h1>
+          <p class="lead opacity-75">Une petite plateforme conviviale pour visualiser et suivre les résultats PBI, générer des classements et consulter des statistiques par filière.</p>
+          <br>
+          <p>Vous pouvez consulter les classements du denrier partiel blanc d'octobre  </p>
+          <div class="d-flex justify-content-center gap-3 mt-4">
+            <a href="details.php?filiere=MMOK" class="btn btn-light btn-lg">Classement général MMOK</a>
+            <a href="details.php?filiere=PHARMA" class="btn btn-outline-light btn-lg">Classement général Pharmacie</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-echo "Connected successfully";
+    <section class="row mt-5 gy-4">
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm bg-white">
+          <div class="card-body">
+            <h5 class="card-title text-center">Clair et rapide</h5>
+            <p class="card-text text-center small text-muted">Des tableaux et classements simples pour retrouver rapidement les informations dont vous avez besoin.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm bg-white">
+          <div class="card-body">
+            <h5 class="card-title text-center">Données fiables</h5>
+            <p class="card-text text-center small text-muted">Les résultats sont extraits du document PDF récapitulatif des résultats de partiel, le code source complet du projet est à retrouver <a target="_blank" href="https://github.com/GalaxyShadow99/Pass-Ranker">ici</a> </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm bg-white">
+          <div class="card-body">
+            <h5 class="card-title text-center">Conçu pour les PASS</h5>
+            <p class="card-text small text-muted text-center">Outils pensés pour les étudiants des filières PASS/ santé : classements, filtres et statistiques.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-$sql = "SELECT id_etudiant, moyenne_pharma FROM pass_etudiants WHERE moyenne_pharma IS NOT NULL ORDER BY moyenne_pharma desc;";
-$result = $conn->query($sql);
+    <section class="text-center mt-5">
+      <p class="text-muted">Projet léger développé par un étudiant d'IUT Informatique Caennais, si vous avez la moindre remarque sur un segment du site ou sur les données : <a href="mailto:thomas.constantin27@orange.fr">Contactez moi !</a></p>
+    </section>
+  </main>
 
-if ($result->num_rows > 0) {
-    echo "<h3>Étudiants PHRAMA :</h3>";
-    // On boucle sur toutes les lignes retournées
-    while($row = $result->fetch_assoc()) {
-        echo "ID: " . $row["id_etudiant"] . " | Note: " . $row["moyenne_pharma"] . " <br>";
-    }
-} else {
-    echo "Aucun étudiant sans note trouvé.";
-}
-
-$conn->close();
-echo "Connection DB closed"
-?> 
+  <?php include_once __DIR__ . '/includes/footer.php'; ?>
+  <?php include_once __DIR__ . '/includes/scriptsInclude.php'; ?>
+</body>
+</html>

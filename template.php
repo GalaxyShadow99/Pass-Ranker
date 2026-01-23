@@ -32,44 +32,11 @@ include_once __DIR__ . '/includes/head.php';
 
   <main class="container my-5">
     <div class="text-center mb-5">
-      <h1 class="fw-bold">Classement MMOK</h1>
-      <p class="text-muted">Résultats PBI Octobre 2025</p>
+      <h1 class="fw-bold">Template</h1>
+      <p class="text-muted">...</p>
       <hr class="w-25 mx-auto border-primary">
     </div>
 
-    <div class="row justify-content-center">
-      <div class="col-md-10">
-        <?php if ($result && $result->num_rows > 0): ?>
-          <div class="table-responsive shadow-sm rounded">
-            <table class='table table-hover table-bordered border-primary mb-0'>
-              <thead class='table-dark'>
-                <tr>
-                  <th class="text-center">Rang</th>
-                  <th>Identifiant</th>
-                  <th class="text-end">Moyenne Pharma</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php 
-                $rang = 1; 
-                while ($row = $result->fetch_assoc()): 
-                ?>
-                  <tr>
-                    <td class="text-center fw-bold"><?= $rang++ ?></td>
-                    <td><?= htmlspecialchars($row["id_etudiant"]) ?></td>
-                    <td class="text-end text-primary fw-bold">
-                        <?= number_format($row["moyenne_mmok"], 3) ?>
-                    </td>
-                  </tr>
-                <?php endwhile; ?>
-              </tbody>
-            </table>
-          </div>
-        <?php else: ?>
-          <div class='alert alert-info text-center'>Aucun résultat disponible pour cette filière.</div>
-        <?php endif; ?>
-      </div>
-    </div>
   </main>
 
   <?php 

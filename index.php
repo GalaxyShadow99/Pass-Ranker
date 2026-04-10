@@ -35,7 +35,7 @@ include_once __DIR__ . '/includes/head.php';
         <div class="card h-100 shadow-sm bg-white">
           <div class="card-body">
             <h5 class="card-title text-center">Données fiables</h5>
-            <p class="card-text text-center small text-muted">Les résultats sont extraits du document PDF récapitulatif des résultats de partiel, le code source complet du projet est à retrouver <a target="_blank" href="https://github.com/GalaxyShadow99/Pass-Ranker">ici</a> </p>
+            <p class="card-text text-center small text-muted">Les résultats sont extraits du document PDF récapitulatif des résultats de partiel, le code source complet du projet est à retrouver <a target="_blank" href="https://github.com/GalaxyShadow99/Pass-Ranker/blob/main/db/PASS_R%C3%A9sultats_PBI_S1-1.pdf">ici</a> </p>
           </div>
         </div>
       </div>

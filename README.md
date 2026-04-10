@@ -2,8 +2,8 @@
 
 **Statut : Projet arrêté et archivé**
 
-<img src="Illu2.png" alt="Aperçu du projet" width="500">
-<img src="Illu1.png" alt="Aperçu du projet" width="500">
+![Classement détaillé](Illu2.png)
+![Menu principal](Illu1.png)
 
 Outil de visualisation et de classement des résultats pour les partiels de PASS blanc du Tutorat de l'Université de Rouen --> S1 de l'année 25-26 (filières MMOK et Pharmacie). Ce projet a été conçu pour automatiser l'affichage des notes et des rangs à partir d'une base de données SQL.
 
